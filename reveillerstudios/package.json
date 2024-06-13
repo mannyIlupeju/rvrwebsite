@@ -10,18 +10,23 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.1",
+    "@sanity/client": "^6.20.0",
+    "@types/gsap": "^3.0.0",
     "canvas-sketch": "^0.7.7",
     "canvas-sketch-util": "^1.10.0",
+    "dotenv": "^16.4.5",
     "next": "14.1.4",
+    "next-sanity": "^9.3.10",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sanity": "^3.45.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "canvas-sketch-cli": "^1.11.21",
+    "canvas-sketch-cli": "^1.0.4",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",

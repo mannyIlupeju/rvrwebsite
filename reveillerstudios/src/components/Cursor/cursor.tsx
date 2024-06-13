@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { useCanvas } from "@/Context/context/CanvasContext";
 import "./Cursor.css";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -9,69 +11,18 @@ const Cursor = () => {
   const margin = 50;
 
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorTracker(e);
-    };
+  useGSAP(()=> {
+    gsap.set(".custom-cursor", { xPercent: -50, yPercent: -50 });
+    const xTo = gsap.quickTo(".custom-cursor", "x", { duration: 0.6, ease: "power3"});
+    const yTo = gsap.quickTo(".custom-cursor", "y", {duration: 0.6, ease: "power3"})
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-
-  function setCursorTracker(e: MouseEvent): void {
-    let cursorX = e.clientX;
-    let cursorY = e.clientY;
-    const cursorWidth = cursorRef.current?.offsetWidth || 0;
-    const cursorHeight = cursorRef.current?.offsetHeight || 0;
-
-
-    if (cursorX < (window.innerWidth / 2 - cursorX / 2) / 4)
-      cursorX = (window.innerWidth / 2 - cursorX / 2) / 4;
-    if (cursorX >= window.innerWidth * 0.5 + cursorWidth - margin)
-      cursorX = window.innerWidth * 0.5 + cursorWidth - margin;
-    if (
-      cursorY - margin <
-      (cursorHeight - window.innerHeight / 2) * 0.5 + (margin + 12)
-    )
-      cursorY = (cursorHeight - window.innerHeight / 2) * 0.5 + (margin + 12);
-    if (
-      cursorY - margin >
-      (cursorHeight + window.innerHeight / 2) * 0.5 + (margin - 2)
-    )
-      cursorY = (cursorHeight + window.innerHeight / 2) * 0.5 + (margin - 2);
-
-    if (cursorRef.current) {
-      cursorRef.current.style.left = `${cursorX}px`;
-      cursorRef.current.style.top = `${cursorY}px`;
-    }
-
-     if (cursorRef.current) {
-      gsap.to(cursorRef.current, {
-   
-        ease: "power2.out",
-        duration: 0.5,
-      });
-    }
-
-
-  }
-
-
-
-
-
-  useEffect(() => {
- 
-    window.addEventListener("mousemove", setCursorTracker);
-
-    return () => {
-      window.removeEventListener("mousemove", setCursorTracker);
-    };
+    window.addEventListener("mousemove", e => {
+      xTo(e.clientX);
+      yTo(e.clientY);
+    })
+  })
 
     
-  }, [canvasPosition]);
 
   return <div className='custom-cursor' ref={cursorRef}></div>;
 };

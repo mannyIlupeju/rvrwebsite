@@ -1,0 +1,40 @@
+{
+  "name": "reveillerstudios",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Manny Ilupeju <mannybiz@outlook.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.36.2",
+    "@sanity/core": "^2.36.2",
+    "@sanity/default-layout": "^2.36.2",
+    "@sanity/default-login": "^2.36.2",
+    "@sanity/desk-tool": "^2.36.2",
+    "@sanity/eslint-config-studio": "^4.0.0",
+    "@sanity/vision": "^2.35.7",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.6.0",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "styled-components": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mannyIlupeju/rvrwebsite.git"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  }
+}

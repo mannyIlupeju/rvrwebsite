@@ -45,7 +45,7 @@ const NavLink = ({name, href}:navLinkType) => {
 };
 
 const NavLinks: React.FC<NavLinksProps> = ({ links }) => (
-	<div className='lg:flex lg:gap-24 gap-2 text-xs font-light lg:items-center hidden  '>
+	<div className='lg:flex lg:gap-20 gap-2 text-xs font-light lg:items-center hidden  '>
 		{links.map(link => <NavLink key={link.name} {...link} />)}
 	</div>
 );

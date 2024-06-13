@@ -21,7 +21,7 @@ export default function Home() {
         :
           ( 
           <section className="bg-gray-200 ">
-            <main className="flex items-center flex-col overflow-x-hidden overflow-y-hidden">
+            <main className="flex items-center flex-col overflow-x-hidden overflow-y-hidden min-h-200">
             <Sketch/>
         
             </main>   
